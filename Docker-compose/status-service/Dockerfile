@@ -8,6 +8,6 @@ RUN npm i
 
 COPY . .
 
-EXPOSE 5002
+EXPOSE 3003
 
 CMD ["node", "."]

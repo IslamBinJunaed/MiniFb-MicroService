@@ -12,25 +12,25 @@ services:
       - user_service
 
   status_service:
+    build: ./status-service
+    restart: unless-stopped
     depends_on:
       - user_service
       - statusDB
-    build: ./status_service
-    restart: unless-stopped
   
   story_service:
+    build: ./story-service
+    restart: unless-stopped
     depends_on:
       - user_service
       - minio
       - storyDB
-    build: ./story_service
-    restart: unless-stopped
 
   user_service:
+    build: ./user-service
+    restart: unless-stopped
     depends_on:
       - userDB
-    image: ./user_service
-    restart: unless-stopped
  
   userDB:
     image: bitnami/mongodb:6.0
